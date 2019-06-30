@@ -10,7 +10,6 @@ var noms3=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16
 var noms4=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms5=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms6=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
-
 var dimgs="images/";
 var cats=[["images/superheros/",noms1]];
 var nbc=parseInt(Math.random()*cats.length);
@@ -38,29 +37,40 @@ for(x=0;x<32;x++)
 function Get_nb_returned()
 {
     nb=0;
+    lst=[];
     for(x=0;x<imgs.length;x++)
     {
-        nb+=1;
+        if(isaff[x]==true)
+        {
+            nb+=1;
+            lst.push(x);
+        }
     }
-    return nb
+    return [nb,lst];
 }
 
 function ReverseCard(nb)
 {
     if( Get_nb_returned()[0] > 1 )
     {
-        isaff[nb] = !isaff[nb];
+        if(isaff[nb])
+        {
+            isaff[nb] = false;
+        }
+        else
+        {
+            isaff[nb] = true;
+        }
         Aff_Image(nb);
     }
-    if( Get_nb_returned()[0] <= 1 )
+    if( Get_nb_returned()[0] == 1 )
     {
         ii=Get_nb_returned()[1][0];
-        imgs[ii].setAttribute("width",imgs[ii].getAttributes("width")*2);
-        imgs[ii].setAttribute("height",imgs[ii].getAttributes("height")*2);
-        texte="Vous avez trouvé : "+noms_p[ii];
+        imgs[ii].setAttribute("width",300);
+        imgs[ii].setAttribute("height",360);
+        texte="Vous avez trouve : "+noms_p[ii];
         alert(texte);
+        document.getElementById("texte").innerHTML = texte ;
     }
 }
-
-
 
