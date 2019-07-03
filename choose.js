@@ -12,7 +12,22 @@ var noms5=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16
 var noms6=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var dimgs="images/";
 var cats=[["images/superheros/",noms1]];
-var nbc=parseInt(Math.random()*cats.length);
+
+var texte="Quelle categorie voulez vous ? \n\
+    0-super-heros \n\
+tapez le numero pour choisir la categorie que vous voulez. \n\
+Si vous tapez autre chose, ce sera la premiere categorie qui sera prise.";
+
+var valeur = prompt(texte);
+var bc=parseInt(valeur);
+if(bc in [0]){
+    nbc=bc;
+}
+else
+{
+    nbc=0;
+}
+
 var dimgp=cats[nbc][0];
 var noms_p=cats[nbc][1];
 

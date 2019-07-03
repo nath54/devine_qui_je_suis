@@ -5,7 +5,7 @@ var imgs=[document.getElementById("img1"),document.getElementById("img2"),docume
 var isaff=[true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true];
 
 var noms1=["Superman","Batman","Wonder Woman","Flash","Green Lantern","Aquaman","Captain Marvel","Green Arrow","Hulk","Thor","Iron Man","Ant Man","Captain America","Spider Man","Wolverine","Le Cyclope","Iceberg","Angel","Le Fauve","La Torche","La chose","Le Surfer D'argent","Deadpool","Le Joker","Lex Luthor","Venom","Dr Octopus","Le bouffon vert","Magneto","Thanos","Loki","Dr Fatalis"];
-var noms2=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
+var noms2=["Emmanuel Macron","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms3=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms4=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
 var noms5=["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32"];
@@ -14,23 +14,20 @@ var dimgs="images/";
 var cats=[["images/superheros/",noms1]];
 
 
-var texte="""
-Quelle categorie voulez vous ?
-    1-super-heros
-
-tapez le numero pour choisir la categorie que vous voulez.
-Si vous taoez autre chose, ce sera la premiere categorie qui sera prise.
-""";
+var texte="Quelle categorie voulez vous ? \n\
+    0-super-heros \n\
+tapez le numero pour choisir la categorie que vous voulez. \n\
+Si vous tapez autre chose, ce sera la premiere categorie qui sera prise.";
 
 var valeur = prompt(texte);
-try{
-    nbc=parseInt(valeur);
+var bc=parseInt(valeur);
+if(bc in [0]){
+    nbc=bc;
 }
-catch(error){
-    nbc=0
+else
+{
+    nbc=0;
 }
-
-
 var dimgp=cats[nbc][0];
 var noms_p=cats[nbc][1];
 
